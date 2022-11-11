@@ -10,7 +10,7 @@ Functions:
 -Create / Update Passenger Account -fname, lname, mnumber, emailaddr
 -Create / Update Driver Account -fname, lname, mnumber, emailaddr, icno, carlicenseno. (update all except icno.)
 
--Request trip with postal code of pick up and drop off 
+-Request trip with postal code of pick up and drop off (time, postalpickup , postaldropoff, driver)
 -Assign driver with no passenger 
 -Driver can start / end trip 
 -Passenger can retrieve all trips 
