@@ -140,11 +140,11 @@ Trip Svc.
  -  - the endtrip function is called, which allows the driver to end an ongoing trip. 
 
 
-# Trip Service
+# Menu Service
  
 ## List of Options in the main menu and how they work: 
 
-### Passenger-Side
+### Passenger-Side (Port 5000)
 
 1. Create Passenger
  - The create passenger option allows the user to create a new passenger and will prompt for multiple input fields. A random passengerid is then assigned to the user. After connecting to the client the id is then appended to the "http://localhost:5000/api/v1/passenger/" as a POST request to create a new passenger. 
@@ -168,14 +168,45 @@ Trip Svc.
 5. View Trip History
 - viewPassengerTrips function will prompt the user for their passengerid, and with the GET request, "http://localhost:5000/api/v1/trip/", the trip history of a passenger will be scanned and listed out in reverse chronological order.
 
-### Driver 
+### Driver-Side (Port 3000)
 
 6. Create Driver
  - The create driver function, will assign a random driverid to the user, prompt the user for input then with a new POST request and Driver API "http://localhost:3000/api/v1/driver/", create a new driver record in the database.
  - Status 202 is returned if a driver is created successfully.
  - Status 409 is returned if a driver already exists. 
 
-7. 
+7. Update Driver
+- The updateDriver option, will prompt the user for the specific assigned driverid to make change to the existing driver. However the driver will not be able to update their Identification No. A POST request with "http://localhost:3000/api/v1/driver/" is used to update the existing driver's information. 
+- Status 202 is returned if the driver is updated successfully
+- Status 404 is returned if the driver does not exist.
+
+8. View Driver (Admin - Feature)
+ - The viewDriver function is called to retrieve the list of passengers that are in the database. With a new GET request and API "http://localhost:3000/api/v1/driver/view/", the list of drivers are then scanned and then displayed.
+ 
+9. Update Busy
+- Prompts the user for the unique driverid, then changes the status of the driver to Busy using the POST request and API "http://localhost:3000/api/v1/driver/status/offline/".
+- Status 202 is returned if the status is updated successfully.
+- Status 404 is returned if the input driverid does not exist.
+ 
+10. Update Avaialable
+ - Prompts the user for the unique driverid, then changes the status of the driver to Busy using the POST request and API "(http://localhost:3000/api/v1/driver/status/online/)".
+- Status 202 is returned if the status is updated successfully.
+- Status 409 is returned if the input driver has an ongoing ride.
+- Status 404 is returned if the input driverid does not exist.
+
+11. View Driver Trips 
+- Retrieve assigned trips to the driver using the GET request and API "http://localhost:3000/api/v1/driver/trips/". The assigned trip is printed out. The response body is checked, if there is an assigned trip to the driver, the driver will be prompted with 3 other options which allow the driver to: 
+1. Start Trip (prompt user for trip and driverid, with PUT "http://localhost:3000/api/v1/driver/trips/start/" which will change the trip status in the trip table to Ongoing. 
+ - Status 202 is returned if the tripstatus is updated successfully. 
+ - Status 409 is returned if the driverid / tripid does not exists 
+2. End Trip (prompt user for trip and driverid, with PUT "(http://localhost:3000/api/v1/driver/trips/end/)" which will change the trip status in the trip table to Completed. 
+ - Status 202 is returned if the tripstatus is updated successfully. 
+ - Status 409 is returned if the driverid / tripid does not exists
+3. Exit
+ - This option will return the user to the main menu. 
+
+12. Exit
+ - This option allows the user to exit the application. 
 
 # Instructions to set-up the microservices
 - 
