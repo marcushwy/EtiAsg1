@@ -140,7 +140,7 @@ Trip Svc.
  -  - the endtrip function is called, which allows the driver to end an ongoing trip. 
 
 
-# Menu Service
+# Menu Service Documentation
  
 ## List of Options in the main menu and how they work: 
 
@@ -218,4 +218,22 @@ Trip Svc.
 
 
 # Instructions to set-up the microservices
-1. 
+
+Software Required (but not limited to) : 
+- IDE Visual Studio Code 
+- MySQL WorkBench 
+
+Setup: 
+1. Download all the folders for the microservices and save it to your desktop / designated folder. 
+2. Download the SQL Script named "ETI Ride Share.sql" (this will be used to set up the database and tables) and save it your desktop.
+3. Open MySQL WorkBench 
+4. Connect to local instance, ensure that the localhost port is :3306 and enter your password.
+5. After that, in the local instance, click on File -> Open Sql Script (search for the ETI Ride Share.sql script downloaded to your desktop and click Open)
+6. The Sql query for table setup will be loaded to your local instance.
+7. On your keyboard, press Ctrl + Shift + Enter to execute the entire Sql Query. 
+8. After the tables have been created to the new database, open each of the .go files (In VSCode) for the Passenger and Driver folders. 
+9. Press F5 to run the .go files and make sure to run Passenger.go and Driver.go at the same time. 
+10. After ensuring that the programs are running, open Command Prompt. 
+11. Navigate to the location of where the Menu.go file is saved. (For this example: C:\Users\username\ -> type in "cd desktop/menu")
+12. Once ensuring that you are in the Menu folder, (Example: C:\Users\username\Desktop\Menu) type in "go run menu.go" to run the Menu.go program.
+13. The Main Menu will be shown and you will be prompted for an input to navigate through the main menu. 
