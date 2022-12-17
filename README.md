@@ -10,9 +10,11 @@ Hello and Welcome to the Readme for my console application named Ride-Share, dev
 In this Readme, my thought processes and thought considerations to implement this assignment will be documented.
 
 **Microservices and Domain-Driven Design**
+
 Before working on this application, I have conducted extensive research through referencing online material to write a report on the concepts of Domain-Driven-Design while using the Shopee application as an example. The research process played a big part to determine the structure of the current console application as I was exposed to new concepts when it comes to programming with DDD. For example:  Model-Driven-Design, Strategic Design and Tactical Design. 
 
 **Strategic Design (Domains, Sub-Domains and Contexts)**
+
 The Strategic Design phase of DDD helped me to plan out the design of the microservice architecture from a high-level perspective and understand the crucial features that each microservice would need to contain without going too in-depth on “how” the application would be implemented (such as technology). This phase of design is important because it prevents me from straying away from the important business capabilities of the software. 
 Ride-Share is a console application that has somewhat similar functionalities when compared to the famous ride-grabbing app Uber and Grab. Therefore, a defined domain is important in the planning phase of this assignment because it helps to identify the actual business problems that I am targeting to solve / assist with Ride-Share. 
 
