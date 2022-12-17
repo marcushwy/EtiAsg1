@@ -10,12 +10,9 @@ Hello and Welcome to the Readme for my console application named Ride-Share, dev
 In this Readme, my thought processes and thought considerations to implement this assignment will be documented.
 
 
-
 # Microservices and Domain-Driven Design
 
 Before working on this application, I have conducted extensive research through referencing online material to write a report on the concepts of Domain-Driven-Design while using the Shopee application as an example. The research process played a big part to determine the structure of the current console application as I was exposed to new concepts when it comes to programming with DDD. For example:  Model-Driven-Design, Strategic Design and Tactical Design. 
-
-
 
 
 # Strategic Design (Domains, Sub-Domains and Contexts)
@@ -111,17 +108,23 @@ Trip Svc.
 
  ## List of API and functions called when type of request is made:
  
-- ("/api/v1/passenger/view/", viewpassenger)
-- ("/api/v1/passenger/{passengerid}", passenger)
-- ("/api/v1/passenger/trip/{tripid}/{passengerid}/{driverid}", newtrip)
-- ("/api/v1/trip/{passengerid}", viewpassengertrip)
+1. ("/api/v1/passenger/view/", viewpassenger)
+ - The viewpassenger function is called to retrieve the list of passengers.
+2. ("/api/v1/passenger/{passengerid}", passenger)
+ - The passenger function is called, if the request method is POST, the insertPassenger function is called to create a new passenger to the database provided that the passenger does not exist previously.
+3. ("/api/v1/passenger/trip/{tripid}/{passengerid}/{driverid}", newtrip)
+ - The newtrip function is called, if the request method is POST, the createTrip function is called to create a new trip taking in trip id, passengerid and driverid as parameters. Provided that the passenger exist in the database and is not already in an ongoing trip. 
+4. ("/api/v1/trip/{passengerid}", viewpassengertrip)
+ - The viewpassengertrip function is called, which will print out the trip history of a input passengerid in reverse chronological order. 
 
 
 # Driver Service Documentation 
 
  ## List of API and functions called when type of request is made:
  
-- router.HandleFunc("/api/v1/driver/view/", viewdriver)
+1. router.HandleFunc("/api/v1/driver/view/", viewdriver)
+ 
+
 -	router.HandleFunc("/api/v1/driver/{driverid}", driver)
 -	router.HandleFunc("/api/v1/driver/status/online/{driverid}", driveronline)
 -	router.HandleFunc("/api/v1/driver/status/offline/{driverid}", driveroffline)
