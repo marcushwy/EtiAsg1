@@ -106,5 +106,36 @@ Trip Svc.
 - Main Menu of the console application 
 - Calls the different APIs
 - Requests for user input to handle different actions
- 
 
+# Passenger Service Documentation
+
+ ## List of API and functions called when type of request is made:
+ 
+- ("/api/v1/passenger/view/", viewpassenger)
+- ("/api/v1/passenger/{passengerid}", passenger)
+- ("/api/v1/passenger/trip/{tripid}/{passengerid}/{driverid}", newtrip)
+- ("/api/v1/trip/{passengerid}", viewpassengertrip)
+
+
+# Driver Service Documentation 
+
+ ## List of API and functions called when type of request is made:
+ 
+- router.HandleFunc("/api/v1/driver/view/", viewdriver)
+-	router.HandleFunc("/api/v1/driver/{driverid}", driver)
+-	router.HandleFunc("/api/v1/driver/status/online/{driverid}", driveronline)
+-	router.HandleFunc("/api/v1/driver/status/offline/{driverid}", driveroffline)
+-	router.HandleFunc("/api/v1/drivers/", autoassigndriver)
+-	router.HandleFunc("/api/v1/driver/trips/{driverid}", getdrivertrip)
+-	router.HandleFunc("/api/v1/driver/trips/start/{tripid}", begintrip)
+-	router.HandleFunc("/api/v1/driver/trips/end/{tripid}/{driverid}", finishtrip)
+
+# Trip Service
+ 
+## List of Options in the main menu and how they work: 
+
+-
+
+
+# Instructions to set-up the microservices
+- 
