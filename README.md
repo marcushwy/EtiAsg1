@@ -6,12 +6,18 @@ Name: Marcus Hon Wei Yang
 ID: S10207469
 
 **Introduction**
+
 Hello and Welcome to the Readme for my console application named Ride-Share, developed for my first ETI assignment in Ngee Ann Polytechnic.
 In this Readme, my thought processes and thought considerations to implement this assignment will be documented.
+
+
 
 **Microservices and Domain-Driven Design**
 
 Before working on this application, I have conducted extensive research through referencing online material to write a report on the concepts of Domain-Driven-Design while using the Shopee application as an example. The research process played a big part to determine the structure of the current console application as I was exposed to new concepts when it comes to programming with DDD. For example:  Model-Driven-Design, Strategic Design and Tactical Design. 
+
+
+
 
 **Strategic Design (Domains, Sub-Domains and Contexts)**
 
@@ -36,7 +42,10 @@ In the Trip Booking Context (which links Passenger and Driver together)
 
 To put simply, for the Passenger and Driver subdomains would have bounded contexts that can aid me in determining the appropriate features needed for each potential microservice. 
 
+
+
 **Tactical Design**
+
 This design phases allows me to think about the application from a more technical perspective, which are the technologies / ways that I could potentially utilize to programme this console application. (With consideration of assignment requirements) 
 
 Programming language used: Go Lang 
@@ -76,7 +85,8 @@ Aggregates/Tables broken down:
 -> TripId, PassengerId, PickupCode, DropoffCode, DriverId, TripStatus, TripDate
 
 
-**List of Features and Requirements: **
+
+**List of Features in each microsvc.**
 
 Passenger Svc. 
 -View Passenger Account (GET)
