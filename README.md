@@ -199,7 +199,7 @@ Trip Svc.
 1. Start Trip (prompt user for trip and driverid, with PUT "http://localhost:3000/api/v1/driver/trips/start/" which will change the trip status in the trip table to Ongoing. 
  - Status 202 is returned if the tripstatus is updated successfully. 
  - Status 409 is returned if the driverid / tripid does not exists 
-2. End Trip (prompt user for trip and driverid, with PUT "(http://localhost:3000/api/v1/driver/trips/end/)" which will change the trip status in the trip table to Completed. 
+2. End Trip (prompt user for trip and driverid, with PUT "(http://localhost:3000/api/v1/driver/trips/end/)" which will change the trip status in the trip table to Completed, and also set the driver status back to Available. 
  - Status 202 is returned if the tripstatus is updated successfully. 
  - Status 409 is returned if the driverid / tripid does not exists
 3. Exit
@@ -208,5 +208,14 @@ Trip Svc.
 12. Exit
  - This option allows the user to exit the application. 
 
+# Possible Improvements in the Future: 
+- Work on beautifying the console display, such as by reducing the amount of information in the main menu. 
+- Work on error validation, not all of the aspects of the programme was validated due to time constraints, and I hope to have the opportunity to tackle those errors to provide better user experience
+- Better structure and design and programming practices
+- Continuous testing of the microservices in the future to further scout any hidden requirements 
+- Implementation of front-end 
+- Strive towards high coupling and low cohesion between microservices
+
+
 # Instructions to set-up the microservices
-- 
+1. 
