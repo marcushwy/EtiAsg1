@@ -4,7 +4,7 @@
 Name: Marcus Hon Wei Yang 
 ID: S10207469
 
-## Introduction
+# Introduction
 
 Hello and Welcome to the Readme for my console application named Ride-Share, developed for my first ETI assignment in Ngee Ann Polytechnic.
 In this Readme, my thought processes and thought considerations to implement this assignment will be documented.
@@ -88,23 +88,23 @@ Aggregates/Tables broken down:
 # List of Features in each microsvc.
 
 Passenger Svc. 
--View Passenger Account (GET)
--Create Passenger Account (POST) 
--Update Passenger Account (PUT)
--Request New Trip (POST) 
--Retrieve Trips in Reverse Chronological Order (GET) 
+- View Passenger Account (GET)
+- Create Passenger Account (POST) 
+- Update Passenger Account (PUT)
+- Request New Trip (POST) 
+- Retrieve Trips in Reverse Chronological Order (GET) 
 
 Driver Svc. 
--View Driver Account (GET)
--Create Driver Account (POST) 
--Update Passenger Account (PUT) 
--Update Driver Status (Busy / Available) (PUT) 
--Start Trip / End Trip (PUT) 
--View Assigned Trips (GET) 
+- View Driver Account (GET)
+- Create Driver Account (POST) 
+- Update Passenger Account (PUT) 
+- Update Driver Status (Busy / Available) (PUT) 
+- Start Trip / End Trip (PUT) 
+- View Assigned Trips (GET) 
 
 Trip Svc.
--Main Menu of the console application 
--Calls the different APIs
--Requests for user input to handle different actions
+- Main Menu of the console application 
+- Calls the different APIs
+- Requests for user input to handle different actions
  
 
