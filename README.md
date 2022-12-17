@@ -106,12 +106,12 @@ Trip Svc.
 
 # Passenger Service Documentation
 
- ## List of API and functions called when type of request is made:
+ ## List of API and functions called:
  
 1. ("/api/v1/passenger/view/", viewpassenger)
  - The viewpassenger function is called to retrieve the list of passengers.
 2. ("/api/v1/passenger/{passengerid}", passenger)
- - The passenger function is called, if the request method is POST, the insertPassenger function is called to create a new passenger to the database provided that the passenger does not exist previously.
+ - The passenger function is called, if the request method is POST, the insertPassenger function is called to create a new passenger to the database provided that the passenger does not exist previously. If the request method is PUT, the updatePassenger function is called, allowing the existing passenger to update their information.
 3. ("/api/v1/passenger/trip/{tripid}/{passengerid}/{driverid}", newtrip)
  - The newtrip function is called, if the request method is POST, the createTrip function is called to create a new trip taking in trip id, passengerid and driverid as parameters. Provided that the passenger exist in the database and is not already in an ongoing trip. 
 4. ("/api/v1/trip/{passengerid}", viewpassengertrip)
@@ -120,25 +120,62 @@ Trip Svc.
 
 # Driver Service Documentation 
 
- ## List of API and functions called when type of request is made:
+ ## List of API and functions called:
  
 1. router.HandleFunc("/api/v1/driver/view/", viewdriver)
- 
+ - The viewdriver function is called, to retrieve the list of drivers.
+2. router.HandleFunc("/api/v1/driver/{driverid}", driver)
+ - The driver function is called, if the request method is POST, the insertDriver function is called to create a new passenger to the database provided that the driver does not exist previously. If the request method is PUT, the updateDriver function is called, allowing the existing driver to update their information.
+3. router.HandleFunc("/api/v1/driver/status/online/{driverid}", driveronline)
+ - The driveronline function is called, allowing the driver to update their status to Available provided that they are not in an ongoing trip.
+4.	router.HandleFunc("/api/v1/driver/status/offline/{driverid}", driveroffline)
+ - The driveroffline function is called, which updates the existing driver's status to Busy, which means they are not able to be assigned to trip requests.
+5.	router.HandleFunc("/api/v1/drivers/", autoassigndriver)
+ - the autoassigndriver function is called, which scans through the database for a single random driver with status set to Available so that they can be assigned to a new trip request. 
+6.	router.HandleFunc("/api/v1/driver/trips/{driverid}", getdrivertrip)
+ - the getdrivertrip function is called, and retrieves the assigned trips for the existing driver. 
+7.	router.HandleFunc("/api/v1/driver/trips/start/{tripid}", begintrip)
+ - the begintrip function is called, which allows the driver to begin an accepted trip. 
+8.	router.HandleFunc("/api/v1/driver/trips/end/{tripid}/{driverid}", finishtrip)
+ -  - the endtrip function is called, which allows the driver to end an ongoing trip. 
 
--	router.HandleFunc("/api/v1/driver/{driverid}", driver)
--	router.HandleFunc("/api/v1/driver/status/online/{driverid}", driveronline)
--	router.HandleFunc("/api/v1/driver/status/offline/{driverid}", driveroffline)
--	router.HandleFunc("/api/v1/drivers/", autoassigndriver)
--	router.HandleFunc("/api/v1/driver/trips/{driverid}", getdrivertrip)
--	router.HandleFunc("/api/v1/driver/trips/start/{tripid}", begintrip)
--	router.HandleFunc("/api/v1/driver/trips/end/{tripid}/{driverid}", finishtrip)
 
 # Trip Service
  
 ## List of Options in the main menu and how they work: 
 
--
+### Passenger-Side
 
+1. Create Passenger
+ - The create passenger option allows the user to create a new passenger and will prompt for multiple input fields. A random passengerid is then assigned to the user. After connecting to the client the id is then appended to the "http://localhost:5000/api/v1/passenger/" as a POST request to create a new passenger. 
+ - Status 202 is returned if passenger is created successfully. 
+ - Status 409 is returned if passenger already exists. 
+
+2. Update Passenger
+ - The update passenger option allows the user to update an existing passenger's information. The user will also be prompted with multiple input fields. With a PUT request, "http://localhost:5000/api/v1/passenger/" with the passengerid and postbody to update the information of the passenger. 
+ - Status 202 is returned if passenger is updated successfully.
+ - Status 404 is returned if passenger does not exist. 
+
+3. View Pasenger (Admin - feature) 
+- The viewPassenger function is called to retrieve the list of passengers that are in the database. With a new GET request and API "http://localhost:5000/api/v1/passenger/view/", the list of passengers are then scanned and then displayed. 
+
+4. Create Trip 
+- This option calls the createTrip function in the Menu service and allows the passenger to request for a new trip. First, the Driver API with GET request "http://localhost:3000/api/v1/drivers/" is called to retrieved the drivers that is available to be assigned to a trip. Then the function prompts the user for input of postal code and dropoffcode if a driver is found. Then the user is prompted for pickupcode and dropoff code and a new random tripid is generated. Then with a new POST request and post body, the API "http://localhost:5000/api/v1/passenger/trip/" to create a new trip in the Trip table. 
+- Status 202 is returned if a trip is created successfully. 
+- Status 409 is returned if a passenger is already in an ongoing trip
+- "http://localhost:3000/api/v1/driver/status/offline/" with a POST request is also called to update the assigned driver's status to busy. 
+
+5. View Trip History
+- viewPassengerTrips function will prompt the user for their passengerid, and with the GET request, "http://localhost:5000/api/v1/trip/", the trip history of a passenger will be scanned and listed out in reverse chronological order.
+
+### Driver 
+
+6. Create Driver
+ - The create driver function, will assign a random driverid to the user, prompt the user for input then with a new POST request and Driver API "http://localhost:3000/api/v1/driver/", create a new driver record in the database.
+ - Status 202 is returned if a driver is created successfully.
+ - Status 409 is returned if a driver already exists. 
+
+7. 
 
 # Instructions to set-up the microservices
 - 
