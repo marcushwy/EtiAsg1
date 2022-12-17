@@ -1,11 +1,11 @@
 # EtiAsg1
 
-ETI ASSIGNMENT 1 - Ride Sharing Platform
+#ETI ASSIGNMENT 1 - Ride Sharing Platform
 
 Name: Marcus Hon Wei Yang 
 ID: S10207469
 
-**Introduction**
+##Introduction
 
 Hello and Welcome to the Readme for my console application named Ride-Share, developed for my first ETI assignment in Ngee Ann Polytechnic.
 In this Readme, my thought processes and thought considerations to implement this assignment will be documented.
